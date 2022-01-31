@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import requests
-
+import cloudscraper
 URL = "https://services.gingersoftware.com/Ginger/correct/jsonSecured/GingerTheTextFull"  # noqa
 API_KEY = "6ae0c3a0-afdc-4532-a810-82ded0054236"
 
@@ -13,7 +13,7 @@ class GingerIt(object):
         self.lang = "US"
 
     def parse(self, text, verify=True):
-        session = requests.Session()
+        session = cloudscraper.create_scraper()
         request = session.get(
             self.url,
             params={
